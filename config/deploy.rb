@@ -1,10 +1,11 @@
 lock '~> 3.15.0'
 
 set :application, 'template-api-rails-app'
-set :repo_url, 'ssh://git@github.com:one0fnine/template-rails-app.git'
+set :repo_url, 'ssh://git@github.com/one0fnine/template-rails-app.git'
+
 set :user, 'deploy'
 set :rbenv_type, :user
-set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"
+set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}/#{fetch(:role_app)}"
 
 set :pty, true
 
@@ -21,7 +22,6 @@ set :init_system, :systemd
 
 set :migration_role, :migration
 set :sidekiq_roles, :sidekiq
-set :assets_roles, :app
 
 set :puma_role, :app
 set :puma_workers, 4
