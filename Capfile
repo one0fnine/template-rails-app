@@ -26,6 +26,7 @@ install_plugin Capistrano::SCM::Git
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
 #
+require 'capistrano/rails'
 require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 require 'capistrano/bundler'
@@ -34,7 +35,8 @@ require 'capistrano/rails/migrations'
 # require 'capistrano/passenger'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
-# install_plugin Capistrano::Puma::Monit
+install_plugin Capistrano::Puma::Monit, load_hooks: false
+install_plugin Capistrano::Puma::Systemd
 require 'capistrano/sidekiq'
 require 'bcrypt_pbkdf'
 require 'ed25519'
