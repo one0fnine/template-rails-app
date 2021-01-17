@@ -5,6 +5,9 @@ do-run:
 do-app:
 	docker-compose up rails
 
+do-worker:
+	docker-compose up sidekiq
+
 do-dbmigrate:
 	docker-compose run --rm runner make db-migrate
 

@@ -41,5 +41,6 @@ module TemplateRailsApiApp
       g.orm :active_record, primary_key_type: :uuid
       g.orm :active_record, foreign_key_type: :uuid
     end
+    config.active_job.queue_adapter = :sidekiq
   end
 end
