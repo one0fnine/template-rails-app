@@ -14,6 +14,11 @@ do-console:
 do-bundle:
 	docker-compose run --rm runner bundle install
 
+do-rebuild-app:
+	docker-compose build --compress --force-rm --parallel --progress auto runner;
+	docker-compose build --compress --force-rm --parallel --progress auto rails;
+	docker-compose build --compress --force-rm --parallel --progress auto sidekiq;
+
 # Rails
 db-setup:
 	bundle exec rails db:setup
