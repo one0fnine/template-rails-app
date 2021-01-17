@@ -34,7 +34,7 @@ require 'capistrano/rails/migrations'
 # require 'capistrano/passenger'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
-# install_plugin Capistrano::Puma::Monit
+install_plugin Capistrano::Puma::Monit
 require 'capistrano/sidekiq'
 require 'bcrypt_pbkdf'
 require 'ed25519'
