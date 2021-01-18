@@ -36,7 +36,7 @@ group :development do
   gem 'capistrano-bundler', '~> 2.0', require: false
   gem 'capistrano-rails', '~> 1.6', require: false
   gem 'capistrano-rbenv', '~> 2.2', require: false
-  gem 'capistrano-sidekiq', '~> 2.0', require: false
+  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq', require: false
   gem 'ed25519', '~> 1.2', require: false
   gem 'bcrypt_pbkdf', '~> 1.1', require: false
 end

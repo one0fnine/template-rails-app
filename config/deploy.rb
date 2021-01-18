@@ -6,7 +6,6 @@ set :repo_url, 'ssh://git@github.com/one0fnine/template-rails-app.git'
 
 set :user, 'deploy'
 set :rbenv_type, :user
-set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}/#{fetch(:role_app)}"
 
 set :pty, false
 
@@ -29,31 +28,7 @@ set :puma_workers, 4
 set :puma_init_active_record, true
 set :puma_threads, [8, 32]
 set :puma_preload_app, true
-set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
-set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
-set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
-set :puma_access_log, "#{release_path}/log/puma.access.log"
-set :puma_error_log,  "#{release_path}/log/puma.error.log"
 set :puma_worker_timeout, nil
-
-# Sidekiq
-set :sidekiq_service_name, 'sidekiq'
-
-namespace :sidekiq do
-  desc "Quiet sidekiq (stop fetching new tasks from Redis)"
-  task :quiet do
-    on roles(:app, :sidekiq) do
-      execute :systemctl, :stop, '--user', fetch(:sidekiq_service_name)
-    end
-  end
-
-  desc "Restart sidekiq service"
-  task :restart do
-    on roles(:app, :sidekiq) do
-      execute :systemctl, :restart, '--user', fetch(:sidekiq_service_name)
-    end
-  end
-end
 
 namespace :deploy do
   before :updating, :'puma:monit:unmonitor'
