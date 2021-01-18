@@ -2,7 +2,7 @@
 
 set :branch, :main
 
-server 'localhost', user: 'deploy', roles: %w[app sidekiq migration]
+server 'localhost', user: 'deploy', roles: %w[app migration]
 
 set :rails_env, :production
-set :role_app, :staging
+set :stage, :staging

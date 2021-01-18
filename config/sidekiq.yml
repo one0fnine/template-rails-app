@@ -1,9 +1,11 @@
-:concurrency: 3
+---
+:concurrency: 5
 staging:
   :concurrency: 10
 production:
-  :concurrency: 10
+  :concurrency: 20
 :queues:
+  - critical
   - default
-:limits:
+  - low
 :dynamic: true

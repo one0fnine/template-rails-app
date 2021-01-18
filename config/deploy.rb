@@ -1,5 +1,6 @@
 lock '~> 3.15.0'
 
+set :rbenv_ruby, '3.0.0'
 set :application, 'template-api-rails-app'
 set :repo_url, 'ssh://git@github.com/one0fnine/template-rails-app.git'
 
@@ -22,9 +23,6 @@ set :rbenv_type, :user
 set :migration_role, :migration
 set :sidekiq_roles, :sidekiq
 
-# Sidekiq
-set :init_system, :systemd
-
 # Puma
 set :puma_role, :app
 set :puma_workers, 4
@@ -38,7 +36,28 @@ set :puma_access_log, "#{release_path}/log/puma.access.log"
 set :puma_error_log,  "#{release_path}/log/puma.error.log"
 set :puma_worker_timeout, nil
 
+# Sidekiq
+set :sidekiq_service_name, 'sidekiq'
+
+namespace :sidekiq do
+  desc "Quiet sidekiq (stop fetching new tasks from Redis)"
+  task :quiet do
+    on roles(:app, :sidekiq) do
+      execute :systemctl, :stop, '--user', fetch(:sidekiq_service_name)
+    end
+  end
+
+  desc "Restart sidekiq service"
+  task :restart do
+    on roles(:app, :sidekiq) do
+      execute :systemctl, :restart, '--user', fetch(:sidekiq_service_name)
+    end
+  end
+end
+
 namespace :deploy do
-  before :starting, :'puma:monit:unmonitor'
+  before :updating, :'puma:monit:unmonitor'
+  after :starting, :'sidekiq:quiet'
+  after :published, :'sidekiq:restart'
   after :finishing, :'puma:monit:monitor'
 end
