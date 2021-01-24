@@ -29,3 +29,5 @@
 # Ignore configs
 /config/database.yml
 /config/storage.yml
+
+.DS_Store
