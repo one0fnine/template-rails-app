@@ -19,6 +19,10 @@ module Api
             render_unprocessable_entity resource.errors
           end
         end
+
+        def sign_up(resource_name, resource)
+          sign_in(resource_name, resource, store: false)
+        end
       end
     end
   end

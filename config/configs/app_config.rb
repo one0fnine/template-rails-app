@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class AppConfig < ApplicationConfig
-  attr_config :database, :domains
-  required :database, :domains
+  attr_config :database, :domains, :default_url_options
+  required :database, :domains, :default_url_options
 
   def database
     super.tap {

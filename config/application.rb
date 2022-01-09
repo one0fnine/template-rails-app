@@ -40,11 +40,10 @@ module StartupTemplateApp
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.action_mailer.default_url_options = MailerConfig.default_url_options
+    config.action_mailer.default_url_options = AppConfig.default_url_options
 
     config.debug_exception_response_format = :api
     config.i18n.default_locale = :en
-    config.session_store :disabled
 
     config.active_record.primary_key = :uuid
     config.active_record.default_timezone = :utc

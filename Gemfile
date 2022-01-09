@@ -60,9 +60,18 @@ gem "rack-cors", "~> 1.1"
 gem "dry-validation", "~> 1.6"
 gem "kaminari-activerecord", "~> 1.2"
 
+# Logs
+gem "logstop", "~> 0.2"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
+
+  # Tests
+  gem "factory_bot_rails", "~> 6.1"
+  gem "rspec-rails", "~> 4.0"
+  gem "shoulda-matchers", "~> 4.0", require: false
+  gem "json_matchers", "~> 0.11", require: false
 end
 
 group :development do

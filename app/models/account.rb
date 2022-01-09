@@ -3,7 +3,7 @@ class Account < ApplicationRecord
     :recoverable, :confirmable, :validatable,
     :jwt_authenticatable, jwt_revocation_strategy: self
 
-  encrypts :email
+  encrypts :email, deterministic: true
 
   has_many :allowlisted_jwts, dependent: :delete_all
 end
