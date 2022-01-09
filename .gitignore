@@ -29,3 +29,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/storage.yml
+/config/database.yml
+/config/cable.yml
+/config/credentials/*.key
+/config/credentials/production.yml.enc
+
+/config/*.local.yml
+/config/credentials/local.*

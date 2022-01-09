@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= AppConfig.database[:pool] %>
+  connect_timeout: <%= AppConfig.database[:connect_timeout] %>
+  checkout_timeout: <%= AppConfig.database[:checkout_timeout] %>
+  variables:
+    statement_timeout: <%= AppConfig.database[:statement_timeout] %>
+  username: <%= AppConfig.database[:username] %>
+  password: <%= AppConfig.database[:password] %>
+  database: <%= AppConfig.database[:name] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default

@@ -14,6 +14,11 @@ To fire up docker runner:
 $ make runner
 ```
 
+To copy configs:
+```bash
+$ make copy-configs
+```
+
 To initialize app via docker:
 ```bash
 $ make do-init-app

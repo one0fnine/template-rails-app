@@ -1,0 +1,5 @@
+database:
+  pool: 10
+  connect_timeout: 15
+  checkout_timeout: 15
+  statement_timeout: 15s

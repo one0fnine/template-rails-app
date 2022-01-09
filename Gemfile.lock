@@ -66,6 +66,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    anyway_config (2.2.2)
+      ruby-next-core (>= 0.11.0)
     bindex (0.8.1)
     bootsnap (1.9.3)
       msgpack (~> 1.0)
@@ -156,6 +158,7 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
+    ruby-next-core (0.14.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -183,6 +186,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  anyway_config (~> 2.1)
   bootsnap
   debug
   importmap-rails
