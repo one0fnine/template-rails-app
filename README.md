@@ -19,7 +19,24 @@ To copy configs:
 $ make copy-configs
 ```
 
+To edit dev creds:
+```bash
+$ make edit-dev-creds
+```
+
 To initialize app via docker:
 ```bash
 $ make do-init-app
+```
+
+## Devise
+**with JWT and JWT strategy is Allow**
+
+Needs to generate 3 keys: `secret_key`, `pepper`, `jwt_key`
+```bash
+$ bundle exec rails secret
+```
+Needs to generate keys to encrypts `email` field in DB:
+```bash
+$ bundle exec rails db:encryption:init
 ```

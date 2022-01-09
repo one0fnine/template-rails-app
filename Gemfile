@@ -34,7 +34,7 @@ gem "importmap-rails"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -48,9 +48,21 @@ gem "bootsnap", require: false
 # Settings
 gem "anyway_config", "~> 2.1"
 
+# Authentication/Registration
+gem "devise", "~> 4.8"
+gem "devise-jwt", "~> 0.8"
+
+# API
+gem "jsonapi_parameters", "~> 2.2"
+gem "jsonapi-serializer", "~> 2.1"
+gem "oj", "~> 3.11"
+gem "rack-cors", "~> 1.1"
+gem "dry-validation", "~> 1.6"
+gem "kaminari-activerecord", "~> 1.2"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -62,4 +74,6 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem "standard", "~> 0.12", require: false
 end

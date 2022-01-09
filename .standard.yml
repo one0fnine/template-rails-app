@@ -1,0 +1,10 @@
+fix: false
+parallel: true
+format: progress
+ruby_version: 3.1.0
+default_ignores: true
+
+ignore:
+  - '.github/**/*'
+  - '.dockerdev/**/*'
+  - 'config/routes.rb'
