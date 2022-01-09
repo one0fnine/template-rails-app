@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby 3.1.0
+* Rails 7.0.1
+* Bundler: 2.3.3
+* Yarn: 1.22.17
+* Node: 14
+* Postgresql: 13
+* Redis: 3.2
 
-Things you may want to cover:
+## Makefile
+To fire up docker runner:
+```bash
+$ make runner
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To initialize app via docker:
+```bash
+$ make do-init-app
+```
